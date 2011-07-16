@@ -32,6 +32,7 @@
 #endif
 
 #include "libirecovery.h"
+#include "libirecovery-private.h"
 
 #define BUFFER_SIZE 0x1000
 #define debug(...) if(libirecovery_debug) fprintf(stderr, __VA_ARGS__)
@@ -326,7 +327,7 @@ irecv_error_t irecv_open(irecv_client_t* pclient) {
 	}
 
 	irecv_error_t error = IRECV_E_SUCCESS;
-	int usb_device_count = libusb_get_device_list(libirecovery_context, &usb_device_list);
+	int usb_device_count = (int) libusb_get_device_list(libirecovery_context, &usb_device_list);
 	for (i = 0; i < usb_device_count; i++) {
 		usb_device = usb_device_list[i];
 		libusb_get_device_descriptor(usb_device, &usb_descriptor);
@@ -575,13 +576,14 @@ void irecv_set_debug_level(int level) {
 }
 
 static irecv_error_t irecv_send_command_raw(irecv_client_t client, char* command) {
-	unsigned int length = strlen(command);
+	unsigned int length = (unsigned int) strlen(command);
 	if (length >= 0x100) {
 		length = 0xFF;
 	}
 
 	if (length > 0) {
 		int ret = irecv_control_transfer(client, 0x40, 0, 0, 0, (unsigned char*) command, length + 1, 1000);
+		ret = IRECV_E_SUCCESS; // ignored
 	}
 
 	return IRECV_E_SUCCESS;
@@ -591,7 +593,7 @@ irecv_error_t irecv_send_command(irecv_client_t client, char* command) {
 	irecv_error_t error = 0;
 	if (check_context(client) != IRECV_E_SUCCESS) return IRECV_E_NO_DEVICE;
 
-	unsigned int length = strlen(command);
+	unsigned int length = (unsigned int) strlen(command);
 	if (length >= 0x100) {
 		length = 0xFF;
 	}
@@ -651,7 +653,7 @@ irecv_error_t irecv_send_file(irecv_client_t client, const char* filename, int d
 		return IRECV_E_UNKNOWN_ERROR;
 	}
 
-	irecv_error_t error = irecv_send_buffer(client, buffer, length, dfuNotifyFinished);
+	irecv_error_t error = irecv_send_buffer(client, (unsigned char *)buffer, length, dfuNotifyFinished);
 	free(buffer);
 	return error;
 }
@@ -679,8 +681,8 @@ irecv_error_t irecv_send_buffer(irecv_client_t client, unsigned char* buffer, un
 	if (check_context(client) != IRECV_E_SUCCESS) return IRECV_E_NO_DEVICE;
 
 	int packet_size = 0x800;
-	int last = length % packet_size;
-	int packets = length / packet_size;
+	int last = (int) length % packet_size;
+	int packets = (int) length / packet_size;
 	if (last != 0) {
 		packets++;
 	} else {
@@ -698,7 +700,7 @@ irecv_error_t irecv_send_buffer(irecv_client_t client, unsigned char* buffer, un
 	}
 
 	int i = 0;
-	double progress = 0;
+//	double progress = 0;
 	unsigned long count = 0;
 	unsigned int status = 0;
 	int bytes = 0;
@@ -734,7 +736,7 @@ irecv_error_t irecv_send_buffer(irecv_client_t client, unsigned char* buffer, un
 			event.progress = ((double) count/ (double) length) * 100.0;
 			event.type = IRECV_PROGRESS;
 			event.data = "Uploading";
-			event.size = count;
+			event.size = (int) count;
 			client->progress_callback(client, &event);
 		} else {
 			debug("Sent: %d bytes - %lu of %lu\n", bytes, count, length);
@@ -879,7 +881,7 @@ irecv_error_t irecv_get_srnm(irecv_client_t client, unsigned char* srnm) {
 	}
 
 	sscanf(srnm_string, "SRNM:[%s]", srnm);
-	srnmp = strrchr(srnm, ']');
+	srnmp = strrchr((const char *) srnm, ']');
 	if(srnmp != NULL) {
 		*srnmp = '\0';
 	}
@@ -899,7 +901,7 @@ irecv_error_t irecv_get_imei(irecv_client_t client, unsigned char* imei) {
 
 
 	sscanf(imei_string, "IMEI:[%s]", imei);
-	imeip = strrchr(imei, ']');
+	imeip = strrchr((const char *)imei, ']');
 	if(imeip != NULL) {
 		*imeip = '\0';
 	}
@@ -1032,7 +1034,7 @@ int irecv_write_file(const char* filename, const void* data, size_t size) {
 		return -1;
 	}
 
-	return size;
+	return (int) size;
 }
 
 int irecv_read_file(const char* filename, char** data, uint32_t* size) {
@@ -1070,7 +1072,7 @@ int irecv_read_file(const char* filename, char** data, uint32_t* size) {
 		return -1;
 	}
 
-	*size = length;
+	*size = (uint32_t) length;
 	*data = buffer;
 	return 0;
 }
@@ -1084,14 +1086,14 @@ irecv_error_t irecv_reset_counters(irecv_client_t client) {
 }
 
 irecv_error_t irecv_recv_buffer(irecv_client_t client, char* buffer, unsigned long length) {
-	irecv_error_t error = 0;
+//	irecv_error_t error = 0;
 	int recovery_mode = (client->mode != kDfuMode);
 
 	if (check_context(client) != IRECV_E_SUCCESS) return IRECV_E_NO_DEVICE;
 
 	int packet_size = recovery_mode ? 0x2000: 0x800;
-	int last = length % packet_size;
-	int packets = length / packet_size;
+	int last = (int) length % packet_size;
+	int packets = (int) length / packet_size;
 	if (last != 0) {
 		packets++;
 	} else {
@@ -1100,12 +1102,12 @@ irecv_error_t irecv_recv_buffer(irecv_client_t client, char* buffer, unsigned lo
 
 	int i = 0;
 	int bytes = 0;
-	double progress = 0;
+//	double progress = 0;
 	unsigned long count = 0;
-	unsigned int status = 0;
+//	unsigned int status = 0;
 	for (i = 0; i < packets; i++) {
 		unsigned short size = (i+1) < packets ? packet_size : last;
-		bytes = irecv_control_transfer(client, 0xA1, 2, 0, 0, &buffer[i * packet_size], size, 1000);
+		bytes = irecv_control_transfer(client, 0xA1, 2, 0, 0, (unsigned char *) &buffer[i * packet_size], size, 1000);
 		
 		if (bytes != size) {
 			return IRECV_E_USB_UPLOAD;
@@ -1117,7 +1119,7 @@ irecv_error_t irecv_recv_buffer(irecv_client_t client, char* buffer, unsigned lo
 			event.progress = ((double) count/ (double) length) * 100.0;
 			event.type = IRECV_PROGRESS;
 			event.data = "Downloading";
-			event.size = count;
+			event.size = (int) count;
 			client->progress_callback(client, &event);
 		} else {
 			debug("Sent: %d bytes - %lu of %lu\n", bytes, count, length);

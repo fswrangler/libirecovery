@@ -29,6 +29,14 @@
 #define FILE_HISTORY_PATH ".irecovery"
 #define debug(...) if(verbose) fprintf(stderr, __VA_ARGS__)
 
+// Private Prototypes
+void print_usage(void);
+void shell_usage(void);
+void parse_command(irecv_client_t client, unsigned char* command, unsigned int size);
+void load_command_history(void);
+void append_command_to_history(char* cmd);
+void init_shell(irecv_client_t client);
+
 enum {
 	kResetDevice, kStartShell, kSendCommand, kSendFile, kSendExploit, kSendScript
 };
@@ -52,7 +60,7 @@ void shell_usage() {
 }
 
 void parse_command(irecv_client_t client, unsigned char* command, unsigned int size) {
-	char* cmd = strdup(command);
+	char* cmd = strdup((const char *) command);
 	char* action = strtok(cmd, " ");
 	debug("Executing %s\n", action);
 	if (!strcmp(cmd, "/exit")) {
@@ -75,7 +83,7 @@ void parse_command(irecv_client_t client, unsigned char* command, unsigned int s
 		int ret;
 		unsigned int cpid, bdid;
 		unsigned long long ecid;
-		unsigned char srnm[12], imei[15], bt[15];
+		unsigned char srnm[12], imei[15]; //, bt[15];
 
 		ret = irecv_get_cpid(client, &cpid);
 		if(ret == IRECV_E_SUCCESS) {
@@ -175,9 +183,9 @@ int received_cb(irecv_client_t client, const irecv_event_t* event) {
 
 int precommand_cb(irecv_client_t client, const irecv_event_t* event) {
 	if (event->type == IRECV_PRECOMMAND) {
-		irecv_error_t error = 0;
+//		irecv_error_t error = 0;
 		if (event->data[0] == '/') {
-			parse_command(client, event->data, event->size);
+			parse_command(client, (unsigned char *) event->data, event->size);
 			return -1;
 		}
 	}

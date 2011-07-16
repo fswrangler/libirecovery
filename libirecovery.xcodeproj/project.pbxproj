@@ -1,0 +1,402 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		967973CF13D06C8F00D00352 /* irecovery.c in Sources */ = {isa = PBXBuildFile; fileRef = 967973AE13D06AC500D00352 /* irecovery.c */; };
+		967973D213D06CA700D00352 /* libirecovery.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 967973BC13D06B9600D00352 /* libirecovery.a */; };
+		967973D413D06CF400D00352 /* libreadline.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 967973D313D06CF400D00352 /* libreadline.dylib */; };
+		967973D613D06D4700D00352 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967973D513D06D4700D00352 /* CoreFoundation.framework */; };
+		967973D813D06D5C00D00352 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967973D713D06D5C00D00352 /* IOKit.framework */; };
+		967973DA13D06EBA00D00352 /* libusb-1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 967973D913D06EBA00D00352 /* libusb-1.0.dylib */; };
+		967973DC13D1B53600D00352 /* libirecovery.c in Sources */ = {isa = PBXBuildFile; fileRef = 967973AF13D06AC500D00352 /* libirecovery.c */; };
+		967973DE13D1B6E900D00352 /* libirecovery-private.h in Headers */ = {isa = PBXBuildFile; fileRef = 967973DD13D1B6E900D00352 /* libirecovery-private.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		967973D013D06C9800D00352 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9679739F13D06A3A00D00352 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 967973BB13D06B9600D00352;
+			remoteInfo = "libirecovery (static)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		967973C313D06C5100D00352 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		967973AC13D06AB100D00352 /* libirecovery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = libirecovery.h; path = include/libirecovery.h; sourceTree = "<group>"; };
+		967973AD13D06AB100D00352 /* libusb-1.0 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "libusb-1.0"; path = "include/libusb-1.0"; sourceTree = "<group>"; };
+		967973AE13D06AC500D00352 /* irecovery.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = irecovery.c; sourceTree = "<group>"; };
+		967973AF13D06AC500D00352 /* libirecovery.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = libirecovery.c; sourceTree = "<group>"; };
+		967973B113D06ADE00D00352 /* boot.irs */ = {isa = PBXFileReference; lastKnownFileType = text; path = boot.irs; sourceTree = "<group>"; };
+		967973B213D06ADE00D00352 /* test.irs */ = {isa = PBXFileReference; lastKnownFileType = text; path = test.irs; sourceTree = "<group>"; };
+		967973B313D06B1200D00352 /* LICENCE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENCE; sourceTree = "<group>"; };
+		967973B413D06B1200D00352 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		967973B513D06B1200D00352 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		967973B613D06B1200D00352 /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		967973BC13D06B9600D00352 /* libirecovery.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libirecovery.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		967973C513D06C5100D00352 /* irecovery */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = irecovery; sourceTree = BUILT_PRODUCTS_DIR; };
+		967973D313D06CF400D00352 /* libreadline.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libreadline.dylib; path = SDKs/MacOSX10.7.sdk/usr/lib/libreadline.dylib; sourceTree = DEVELOPER_DIR; };
+		967973D513D06D4700D00352 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = SDKs/MacOSX10.7.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		967973D713D06D5C00D00352 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = SDKs/MacOSX10.7.sdk/System/Library/Frameworks/IOKit.framework; sourceTree = DEVELOPER_DIR; };
+		967973D913D06EBA00D00352 /* libusb-1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libusb-1.0.dylib"; path = "/usr/local/lib/libusb-1.0.dylib"; sourceTree = "<absolute>"; };
+		967973DD13D1B6E900D00352 /* libirecovery-private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "libirecovery-private.h"; path = "include/libirecovery-private.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		967973B913D06B9600D00352 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		967973C213D06C5100D00352 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				967973DA13D06EBA00D00352 /* libusb-1.0.dylib in Frameworks */,
+				967973D813D06D5C00D00352 /* IOKit.framework in Frameworks */,
+				967973D613D06D4700D00352 /* CoreFoundation.framework in Frameworks */,
+				967973D413D06CF400D00352 /* libreadline.dylib in Frameworks */,
+				967973D213D06CA700D00352 /* libirecovery.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9679739D13D06A3A00D00352 = {
+			isa = PBXGroup;
+			children = (
+				967973B713D06B1C00D00352 /* docs */,
+				967973AB13D06A9900D00352 /* src */,
+				967973A913D06A8600D00352 /* include */,
+				967973B013D06ADE00D00352 /* scripts */,
+				967973B413D06B1200D00352 /* Makefile */,
+				967973DB13D1B44400D00352 /* Libraries and Frameworks */,
+				967973BD13D06B9600D00352 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		967973A913D06A8600D00352 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				967973AC13D06AB100D00352 /* libirecovery.h */,
+				967973AD13D06AB100D00352 /* libusb-1.0 */,
+				967973DD13D1B6E900D00352 /* libirecovery-private.h */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
+		967973AB13D06A9900D00352 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				967973AE13D06AC500D00352 /* irecovery.c */,
+				967973AF13D06AC500D00352 /* libirecovery.c */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		967973B013D06ADE00D00352 /* scripts */ = {
+			isa = PBXGroup;
+			children = (
+				967973B113D06ADE00D00352 /* boot.irs */,
+				967973B213D06ADE00D00352 /* test.irs */,
+			);
+			path = scripts;
+			sourceTree = "<group>";
+		};
+		967973B713D06B1C00D00352 /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				967973B313D06B1200D00352 /* LICENCE */,
+				967973B513D06B1200D00352 /* README */,
+				967973B613D06B1200D00352 /* TODO */,
+			);
+			name = docs;
+			sourceTree = "<group>";
+		};
+		967973BD13D06B9600D00352 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				967973BC13D06B9600D00352 /* libirecovery.a */,
+				967973C513D06C5100D00352 /* irecovery */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		967973DB13D1B44400D00352 /* Libraries and Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				967973D913D06EBA00D00352 /* libusb-1.0.dylib */,
+				967973D713D06D5C00D00352 /* IOKit.framework */,
+				967973D513D06D4700D00352 /* CoreFoundation.framework */,
+				967973D313D06CF400D00352 /* libreadline.dylib */,
+			);
+			name = "Libraries and Frameworks";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		967973BA13D06B9600D00352 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				967973DE13D1B6E900D00352 /* libirecovery-private.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		967973BB13D06B9600D00352 /* libirecovery (static) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 967973BE13D06B9600D00352 /* Build configuration list for PBXNativeTarget "libirecovery (static)" */;
+			buildPhases = (
+				967973B813D06B9600D00352 /* Sources */,
+				967973B913D06B9600D00352 /* Frameworks */,
+				967973BA13D06B9600D00352 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "libirecovery (static)";
+			productName = irecovery;
+			productReference = 967973BC13D06B9600D00352 /* libirecovery.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		967973C413D06C5100D00352 /* irecovery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 967973CC13D06C5100D00352 /* Build configuration list for PBXNativeTarget "irecovery" */;
+			buildPhases = (
+				967973C113D06C5100D00352 /* Sources */,
+				967973C213D06C5100D00352 /* Frameworks */,
+				967973C313D06C5100D00352 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				967973D113D06C9800D00352 /* PBXTargetDependency */,
+			);
+			name = irecovery;
+			productName = irecovery;
+			productReference = 967973C513D06C5100D00352 /* irecovery */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9679739F13D06A3A00D00352 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Booz Allen Hamilton";
+			};
+			buildConfigurationList = 967973A213D06A3A00D00352 /* Build configuration list for PBXProject "libirecovery" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9679739D13D06A3A00D00352;
+			productRefGroup = 967973BD13D06B9600D00352 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				967973BB13D06B9600D00352 /* libirecovery (static) */,
+				967973C413D06C5100D00352 /* irecovery */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		967973B813D06B9600D00352 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				967973DC13D1B53600D00352 /* libirecovery.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		967973C113D06C5100D00352 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				967973CF13D06C8F00D00352 /* irecovery.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		967973D113D06C9800D00352 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 967973BB13D06B9600D00352 /* libirecovery (static) */;
+			targetProxy = 967973D013D06C9800D00352 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		967973A413D06A3B00D00352 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
+			};
+			name = Debug;
+		};
+		967973A513D06A3B00D00352 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
+			};
+			name = Release;
+		};
+		967973BF13D06B9600D00352 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = irecovery;
+			};
+			name = Debug;
+		};
+		967973C013D06B9600D00352 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
+				PRODUCT_NAME = irecovery;
+			};
+			name = Release;
+		};
+		967973CD13D06C5100D00352 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		967973CE13D06C5100D00352 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		967973A213D06A3A00D00352 /* Build configuration list for PBXProject "libirecovery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				967973A413D06A3B00D00352 /* Debug */,
+				967973A513D06A3B00D00352 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		967973BE13D06B9600D00352 /* Build configuration list for PBXNativeTarget "libirecovery (static)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				967973BF13D06B9600D00352 /* Debug */,
+				967973C013D06B9600D00352 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		967973CC13D06C5100D00352 /* Build configuration list for PBXNativeTarget "irecovery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				967973CD13D06C5100D00352 /* Debug */,
+				967973CE13D06C5100D00352 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9679739F13D06A3A00D00352 /* Project object */;
+}

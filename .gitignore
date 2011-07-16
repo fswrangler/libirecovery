@@ -2,3 +2,5 @@
 *.a
 irecovery
 .irecovery
+.DS_Store
+xcuserdata
